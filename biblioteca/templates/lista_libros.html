@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+          <h2 class="sub-header">Lista de Libros</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+<thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Autor</th>
+                  <th>Editorial</th>
+                  <th>ISBN</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+
+    <ul> 
+  {%for libros in libros%}
+
+    <tr>
+      <th>{{libros.id}}</th>
+      <th><a href="/detalle/{{libros.id}}/editar/">{{libros.nombre}}</a></th>
+      <th>{{libros.autor}}</th>
+      <th>{{libros.editorial}}</th>
+      <th>{{libros.ISBN}}</th>
+      <th>{{libros.precio}}</th>
+    
+    </tr>
+  {%empty%}
+    <li>No hay libros en existencia!</li>
+  {%endfor%}
+</ul>
+      </tbody>
+
+</table>
+</div>
+
+{%endblock%}

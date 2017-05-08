@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{%block content%}
+  <h1>Search</h1>
+
+
+  <form action="." method="GET">
+    <input type="text" name="q" value="{{ query|escape }}" class="form-control" placeholder="Search...">
+    <input type="submit" value="Search" class="btn btn-primary">
+  </form>
+ 
+  {% if query %}
+    <h2>Resultado para "{{ query|escape }}":</h2>
+ 
+    {% if results %}
+
+<div class="table-responsive">
+            <table class="table table-striped">
+<thead></thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Autor</th>
+                  <th>Editorial</th>
+                </tr>
+              </thead>
+              <tbody>
+
+    <ul> 
+
+     {% for libromodelo in results %}
+
+    <tr></tr>
+      <th><a href="/libros/{{libromodelo.id}}/editar">{{libromodelo.nombre}}</a></th>
+      <th>{{libromodelo.autor}}</th>
+      <th>{{libromodelo.editorial}}</th>
+    
+    </tr>
+
+     {%endfor%}
+      
+</ul>
+      </tbody>
+
+</table>
+</div>
+
+      
+    {% else %}
+      <p>No se encontraron libros</p>
+    {% endif %}
+  {% endif %}
+
+
+{%endblock%}

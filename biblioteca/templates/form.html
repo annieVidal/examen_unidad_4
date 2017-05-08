@@ -1,0 +1,10 @@
+<h1>{{titulo}}</h1>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="" action="" method="POST" class=form-horizontal>{% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" class ="btn btn-primary "name="" value="{{submit_btn}}">
+
+    </form>
+  </div>
+</div>
