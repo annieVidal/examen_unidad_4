@@ -9,6 +9,23 @@
 
 {%block content%}
 
+
+<h2 class="sub-header">Lista de Libros</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+<thead></thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Autor</th>
+                  <th>Editorial</th>
+                  <th>ISBN</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+
+    <ul>
   {%for libromodelo in object_list%}
 
     <tr>
