@@ -24,7 +24,7 @@ from libros.views import ActualizarLibro, LibroLista, CrearLibro, LibroDetailVie
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'^buscar/$', views.busqueda, name='buscaradw'),
+    #url(r'^buscar/$', views.busqueda, name='busqueda'),
      url(r'^libros/$', views.lista_libros2, name='libros'),
      url(r'^detalle/(?P<object_id>\d+)/$', views.detalle_libro, name='detalle'),
      url(r'^detalle/(?P<slug>[\w-]+)/$', views.detalle_s, name='detalle_s'),

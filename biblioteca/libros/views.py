@@ -68,25 +68,33 @@ class LibroLista(ListView):
 
     def get_queryset(self, *args, **kwargs):
         qs = super(LibroLista, self).get_queryset(**kwargs)
+        query=self.request.GET.get("q")
+        qs=qs.filter(
+                    Q(nombre__icontains=query)|
+                    Q(autor__icontains=query)
+                    ).order_by("nombre")
+        print query
         return qs
+        
+        #return qs
 #########
 
 #BUSQUEDA
 
-def busqueda(request):
-    query = request.GET.get('q', '')
-    if query:
-        qset = (
-            Q(nombre__icontains=query) |
-            Q(autor__icontains=query)
-        )
-        results = libromodelo.objects.filter(qset).distinct()
-    else:
-        results = []
-    return render_to_response("busqueda.html", {
-        "results": results,
-        "query": query
-    })
+#def busqueda(request):
+#    query = request.GET.get('q', '')
+#    if query:
+#        qset = (
+#            Q(nombre__icontains=query) |
+#            Q(autor__icontains=query)
+#        )
+#        results = libromodelo.objects.filter(qset).distinct()
+#    else:
+#        results = []
+#    return render_to_response("busqueda.html", {
+#        "results": results,
+#        "query": query
+#    })
 
 
 ################################################################

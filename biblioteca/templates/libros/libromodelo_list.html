@@ -1,24 +1,14 @@
 {%extends 'base.html'%}
 
+{%block formsearch%}
+  <form class="navbar-form navbar-right" method="GET" action="">
+    <input type="text" class="form-control" name=q placeholder="Buscar...">
+    <input type="submit" name="" value="Buscar...">
+  </form>
+{%endblock%}
+
 {%block content%}
 
-
-<h2 class="sub-header">Lista de Libros</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-<thead></thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Autor</th>
-                  <th>Editorial</th>
-                  <th>ISBN</th>
-                  <th>Precio</th>
-                </tr>
-              </thead>
-              <tbody>
-
-    <ul> 
   {%for libromodelo in object_list%}
 
     <tr>
@@ -28,7 +18,7 @@
       <th>{{libromodelo.editorial}}</th>
       <th>{{libromodelo.ISBN}}</th>
       <th>{{libromodelo.precio}}</th>
-    
+
     </tr>
   {%empty%}
     <li>No hay libros en existencia!</li>
