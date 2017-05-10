@@ -19,24 +19,24 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from libros import views
-from libros.views import ActualizarLibro, LibroLista, CrearLibro, LibroDetailView
+#from libros.views import ActualizarLibro, LibroLista, CrearLibro, LibroDetailView
 
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    #url(r'^buscar/$', views.busqueda, name='busqueda'),
-     url(r'^libros/$', views.lista_libros2, name='libros'),
-     url(r'^detalle/(?P<object_id>\d+)/$', views.detalle_libro, name='detalle'),
-     url(r'^detalle/(?P<slug>[\w-]+)/$', views.detalle_s, name='detalle_s'),
-     url(r'^detalle/(?P<slug>[\w-]+)/$', views.detalle_slug, name='detalle_slug'),
-     url(r'^detalle/(?P<object_id>\d+)/editar/$', views.actualizar, name='actualizar'),
-     url(r'^crear_libro/$', views.agregar_libro, name='nuevo_libro'),
+    url(r'^buscar/$', views.busqueda, name='buscaradw'),
+     #url(r'^libros/$', views.lista_libros2, name='libros'),
+     #url(r'^detalle/(?P<object_id>\d+)/$', views.detalle_libro, name='detalle'),
+     #url(r'^detalle/(?P<slug>[\w-]+)/$', views.detalle_s, name='detalle_s'),
+     #url(r'^detalle/(?P<slug>[\w-]+)/$', views.detalle_slug, name='detalle_slug'),
+     #url(r'^detalle/(?P<object_id>\d+)/editar/$', views.actualizar, name='actualizar'),
+     #url(r'^crear_libro/$', views.agregar_libro, name='nuevo_libro'),
     # #Vistas basadas en clase
-     url(r'^libros/lista/$', LibroLista.as_view(), name='List_view'),
-     url(r'^libros/crear/$', CrearLibro.as_view(), name='create_view'),
-     url(r'^libros/(?P<pk>\d+)/$', LibroDetailView.as_view(), name='detalle_view'),
-     url(r'^libros/(?P<pk>\d+)/editar/$', ActualizarLibro.as_view(), name='update_view'),
-     url(r'^libros/(?P<slug>[\w-]+)/$', LibroDetailView.as_view(), name='slug_detalle_view'),
+     #url(r'^libros/lista/$', LibroLista.as_view(), name='List_view'),
+     #url(r'^libros/crear/$', CrearLibro.as_view(), name='create_view'),
+     #url(r'^libros/(?P<pk>\d+)/$', LibroDetailView.as_view(), name='detalle_view'),
+     #url(r'^libros/(?P<pk>\d+)/editar/$', ActualizarLibro.as_view(), name='update_view'),
+     #url(r'^libros/(?P<slug>[\w-]+)/$', LibroDetailView.as_view(), name='slug_detalle_view'),
 
     url(r'^admin/', admin.site.urls),
     url(r'^libros/', include("libros.urls", namespace='libros')),
